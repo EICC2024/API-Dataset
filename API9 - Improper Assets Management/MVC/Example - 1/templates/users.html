@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Data</title>
+</head>
+<body>
+    <h1>User Data</h1>
+    <table>
+        <tr>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Blocked</th>
+            <th>Unsuccessful Attempts</th>
+        </tr>
+        {% for username, (password, blocked, unsuccessful_attempts) in users.items() %}
+        <tr>
+            <td>{{ username }}</td>
+            <td>{{ password }}</td>
+            <td>{{ "Yes" if blocked else "No" }}</td>
+            <td>{{ unsuccessful_attempts }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

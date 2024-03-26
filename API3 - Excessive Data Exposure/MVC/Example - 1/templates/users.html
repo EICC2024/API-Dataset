@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User List</title>
+</head>
+<body>
+    <h1>User List</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+        </tr>
+        {% for person in person_list %}
+        <tr>
+            <td>{{ person['name'] }}</td>
+            <td>{{ person['surname'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="/">Back to Home</a>
+</body>
+</html>

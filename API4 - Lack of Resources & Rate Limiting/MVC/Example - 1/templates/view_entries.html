@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Entries</title>
+</head>
+<body>
+    <h1>Entries</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in data %}
+                <tr>
+                    <td>{{ entry['ID'] }}</td>
+                    <td>{{ entry['username'] }}</td>
+                    <td>{{ entry['email'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <div>
+        Page: {{ page }} | Entries per page: {{ entries }}
+    </div>
+    
+    <!-- Pagination links -->
+    <div>
+        {% if page > 1 %}
+            <a href="{{ url_for('view_entries', page=page-1, entries=entries) }}">Previous Page</a>
+        {% endif %}
+        
+        <span> | </span>
+        
+        <a href="{{ url_for('view_entries', page=page+1, entries=entries) }}">Next Page</a>
+    </div>
+</body>
+</html>
